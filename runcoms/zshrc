@@ -82,7 +82,7 @@ alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file
 eval $(thefuck --alias)
 
 # apt-get update shortcut
-alias apt_upgrade='sudo apt-get update && sudo apt-get dist-upgrade && sudo autoremove'
+alias apt_upgrade='sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
