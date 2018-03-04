@@ -82,7 +82,27 @@ alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file
 eval $(thefuck --alias)
 
 # apt-get update shortcut
-alias apt_upgrade='sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove'
+sysupgrade() {
+    case "$(uname -s)" in
+        Darwin)
+            mas upgrade
+            brew upgrade
+            brew cu
+            brew cask cleanup
+            brew cleanup
+        ;;
+
+        Linux)
+            sudo apt-get update
+            sudo apt-get dist-upgrade
+            sudo apt-get autoremove
+        ;;
+
+        *)
+        echo 'This Opreating system is not supported.'
+        ;;
+    esac
+}
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
