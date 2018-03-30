@@ -78,6 +78,8 @@ trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the 
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 
+alias ispeed='speedtest --server 911'       # Internet speed test with Fibrenoire, the fastest in Montreal
+
 # apt-get update shortcut
 sysupgrade() {
     case "$(uname -s)" in
