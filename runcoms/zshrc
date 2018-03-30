@@ -57,6 +57,11 @@ alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+alias largest='ls -ld -- **/*(.DOL[1,10])'  # List the 10 largest regular files recursively
+alias dirsize='du -cksh * | sort -hr'       # List folders by their size
+duls () {
+    paste <( du -hs -- "$@" | cut -f1 ) <( ls -ldFGAhp -- "$@" )
+}                                           # List all the directory sizes, and append the results from 'll' command. Usage 'duls *'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
