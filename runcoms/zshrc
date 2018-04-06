@@ -94,14 +94,14 @@ sysupgrade() {
             brew cu
             brew cask cleanup
             brew cleanup
-            which composer > /dev/null 2>&1 && composer global update
+            which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
         ;;
 
         Linux)
             sudo apt-get update
             sudo apt-get dist-upgrade
             sudo apt-get autoremove
-            which composer > /dev/null 2>&1 && composer global update
+            which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
         ;;
 
         *)
