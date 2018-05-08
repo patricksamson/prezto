@@ -110,7 +110,10 @@ sysupgrade() {
     esac
 }
 
+# Laravel aliases
 alias art='php artisan'
+alias migrate='php artisan migrate'
+alias fresh='php artisan migrate:fresh --seed'
 alias cu='composer update'
 
 #   lr:  Full Recursive Directory Listing
