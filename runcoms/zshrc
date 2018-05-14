@@ -95,6 +95,7 @@ sysupgrade() {
             brew cask cleanup
             brew cleanup
             which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
+            zprezto-update
         ;;
 
         Linux)
@@ -102,6 +103,7 @@ sysupgrade() {
             sudo apt-get dist-upgrade
             sudo apt-get autoremove
             which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
+            zprezto-update
         ;;
 
         *)

@@ -38,10 +38,10 @@ function zprezto-update {
       local REMOTE=$(git rev-parse "$UPSTREAM")
       local BASE=$(git merge-base HEAD "$UPSTREAM")
       if [[ $LOCAL == $REMOTE ]]; then
-        printf "There are no updates.\n"
+        printf "There are no zprezto updates.\n"
         return 0
       elif [[ $LOCAL == $BASE ]]; then
-        printf "There is an update available. Trying to pull.\n\n"
+        printf "There is a zprezto update available. Trying to pull.\n\n"
         if git pull --ff-only; then
           printf "Syncing submodules\n"
           git submodule update --recursive
