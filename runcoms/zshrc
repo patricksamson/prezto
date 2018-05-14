@@ -113,7 +113,7 @@ sysupgrade() {
 # Laravel aliases
 alias art='php artisan'
 alias migrate='php artisan migrate'
-alias fresh='php artisan migrate:fresh --seed'
+alias fresh='php artisan migrate:fresh && php artisan db:seed'
 alias cu='composer update'
 
 #   lr:  Full Recursive Directory Listing
