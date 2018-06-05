@@ -56,10 +56,10 @@ alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ll='ls -FlAhp'                        # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
-cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+function cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 alias largest='ls -ld -- **/*(.DOL[1,10])'  # List the 10 largest regular files recursively
 alias dirsize='du -cksh * | sort -hr'       # List folders by their size
-duls () {
+function duls () {
     paste <( du -hs -- "$@" | cut -f1 ) <( ls -ldFGAhp -- "$@" )
 }                                           # List all the directory sizes, and append the results from 'll' command. Usage 'duls *'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
@@ -78,15 +78,15 @@ alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable 
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
-mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
-trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
-ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
+function mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+function trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
+function ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 
 alias ispeed='speedtest --server 911'       # Internet speed test with Fibrenoire, the fastest in Montreal
 
 # apt-get update shortcut
-sysupgrade() {
+function sysupgrade() {
     case "$(uname -s)" in
         Darwin)
             mas upgrade
@@ -125,21 +125,21 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 #   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
 #           displays paginated result with colored search terms and two lines surrounding each hit.             Example: mans mplayer codec
 #   --------------------------------------------------------------------
-mans () {
+function mans () {
     man $1 | grep -iC2 --color=always $2 | less
 }
 
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
-showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zshrc | grep -v '^\s*$' | less -FSRXc ; }
+function showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zshrc | grep -v '^\s*$' | less -FSRXc ; }
 
 
 #   -------------------------------
 #   3.  FILE AND FOLDER MANAGEMENT
 #   -------------------------------
 
-zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
-xzf () { tar -cJf "$1".tar.xz "$1" ; }      # xzf:          To create a tar.xz archive of a folder
+function zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
+function xzf () { tar -cJf "$1".tar.xz "$1" ; }      # xzf:          To create a tar.xz archive of a folder
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
 alias make1mb='mkfile 1m ./1MB.dat'         # make1mb:      Creates a file of 1mb size (all zeros)
 alias make5mb='mkfile 5m ./5MB.dat'         # make5mb:      Creates a file of 5mb size (all zeros)
@@ -148,7 +148,7 @@ alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10
 
 #   extract:  Extract most know archives with one command
 #   ---------------------------------------------------------
-extract () {
+function extract () {
     if [ -f $1 ] ; then
       case $1 in
         *.tar.bz2)   tar xjf $1     ;;
