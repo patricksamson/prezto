@@ -90,7 +90,7 @@ function sysupgrade() {
     case "$(uname -s)" in
         Darwin)
             mas upgrade
-            brew upgrade
+            brew upgrade --force-bottle
             brew cu
             brew cask cleanup
             brew cleanup
