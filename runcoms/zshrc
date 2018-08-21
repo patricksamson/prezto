@@ -92,7 +92,6 @@ function sysupgrade() {
             mas upgrade
             brew upgrade --force-bottle
             brew cu
-            brew cask cleanup
             brew cleanup
             which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
             zprezto-update
