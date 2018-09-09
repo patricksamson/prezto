@@ -124,7 +124,7 @@ alias rrec='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=1024 -
 # Laravel aliases
 alias art='php artisan'
 alias migrate='php artisan migrate'
-alias fresh='php artisan migrate:fresh && php artisan db:seed'
+alias fresh='php artisan migrate:fresh --seed'
 alias cu='composer update'
 
 #   lr:  Full Recursive Directory Listing
