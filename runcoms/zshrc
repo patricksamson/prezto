@@ -118,8 +118,17 @@ fi
 
 # MPV aliases
 alias yt-formats='youtube-dl -F' # Prints all available formats
-alias rlive='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=1024'                            # Play an audio-only Youtube radio Live Stream
-alias rrec='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=1024 --ytdl-format=bestaudio'     # Play an audio-only Youtube pre-recorded set
+
+#   Play an audio-only Youtube radio Live Stream
+#   Youtube Live Streamsare usually MP4+AAC files streamed using the HLS protocol. Since there is only one format, it's easy to compare quality.
+#   They're often available in 480p@128k, 720p@256k or 1080p@256k. Let's use the 720p, since the video is discarded.
+#   Note : --ytdl-raw-options : Options without argument must include =.
+alias rlive='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=2048 --ytdl-format="bestaudio/best[height<1080]/best"'
+
+#   Play an audio-only Youtube pre-recorded set
+#   Regular videos usually have DASH audio-only files, so we try to use those first.
+#
+alias rrec='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=2048 --ytdl-format="bestaudio/best"'
 
 # Laravel aliases
 alias art='php artisan'
