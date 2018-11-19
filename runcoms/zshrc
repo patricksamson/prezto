@@ -136,6 +136,9 @@ alias migrate='php artisan migrate'
 alias fresh='php artisan migrate:fresh --seed'
 alias cu='composer update'
 
+# Node aliases
+alias yu="yarn upgrade"
+
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
