@@ -111,10 +111,12 @@ function sysupgrade() {
     esac
 }
 
+# Network tools
 # Prettyping
 if (( $+commands[prettyping] )); then
   alias ping='prettyping --nolegend'
 fi
+alias arpscan='sudo arp-scan --localnet'
 
 # MPV aliases
 alias yt-formats='youtube-dl --list-formats' # Prints all available formats
