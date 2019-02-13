@@ -14,7 +14,7 @@ SAYINGS=(
     "It is a mistake to think you can solve any major problems just with potatoes.\n  -- Douglas Adams"
     "Nothing travels faster than the speed of light with the possible exception of bad news, which obeys its own special laws.\n  -- Douglas Adams"
     "Don't panic.\n  -- Douglas Adams"
-    "“Funny,” he intoned funereally, “how just when you think life can’t possibly get any worse it suddenly does.”\n  -- Douglas Adams"
+    "“Funny,” he intoned funerally, “how just when you think life can’t possibly get any worse it suddenly does.”\n  -- Douglas Adams"
 )
 
 # Print a randomly-chosen message:
