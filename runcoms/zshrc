@@ -116,7 +116,7 @@ function sysupgrade() {
 if (( $+commands[prettyping] )); then
   alias ping='prettyping --nolegend'
 fi
-alias arpscan='sudo arp-scan --localnet'
+alias arpscan='sudo arp-scan --localnet --bandwidth=4096000'
 
 # MPV aliases
 alias yt-formats='youtube-dl --list-formats' # Prints all available formats
