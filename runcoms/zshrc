@@ -99,7 +99,7 @@ function sysupgrade() {
 
         Linux)
             sudo apt update
-            sudo apt full-upgrade
+            sudo apt -V full-upgrade
             sudo apt autoremove
             which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
             zprezto-update
