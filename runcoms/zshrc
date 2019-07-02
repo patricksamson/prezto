@@ -83,8 +83,6 @@ function trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a fil
 function ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 
-alias ispeed='speedtest --server 911 --secure && speedtest --server 14854 --secure'       # Internet speed test with Fibrenoire, the fastest in Montreal
-
 # apt-get update shortcut
 function sysupgrade() {
     case "$(uname -s)" in
@@ -112,6 +110,33 @@ function sysupgrade() {
 }
 
 # Network tools
+
+# Print the current public IP address
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+function ispeed() {
+    ip="$(myip)"
+
+    # Testing from home
+    if [[ $ip =~ ^70\.52\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+        speedtest --server 14854 --secure
+
+    # Testing from IDF Office
+    elif [[ $ip == 173.231.120.138 ]]; then
+        # Test from Fibrenoire (Montreal, QC)
+            speedtest --server 911 --secure
+
+    else
+        # Test from QTS Datacenters (Jersey City, NJ)
+        speedtest --server 14854 --secure
+
+        # Test from Keewaytinook Okimakanak (Toronto, ON)
+        speedtest --server 4441 --secure
+    fi
+
+    # Use this to add any other condition : elif [[ $ip =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+}
+
 # Prettyping
 if (( $+commands[prettyping] )); then
   alias ping='prettyping --nolegend'
