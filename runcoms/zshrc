@@ -12,6 +12,7 @@ fi
 
 # Powerlevel10k theme configuration
 DEFAULT_USER=$USER
+POWERLEVEL9K_INSTALLATION_DIR='~/.zprezto/modules/prompt/external/powerlevel10k'
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
