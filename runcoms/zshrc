@@ -14,11 +14,15 @@ fi
 DEFAULT_USER=$USER
 POWERLEVEL9K_INSTALLATION_DIR='~/.zprezto/modules/prompt/external/powerlevel10k'
 POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='cyan'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='black'
+POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='yellow'
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context os_icon root_indicator dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status laravel_version time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user root_indicator dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time laravel_version context time)
 
 
 #  ---------------------------------------------------------------------------
