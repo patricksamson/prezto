@@ -29,8 +29,8 @@ POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='black'
 POWERLEVEL9K_CONTEXT_REMOTE_SUDO_FOREGROUND='black'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user root_indicator dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time laravel_version context time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user context root_indicator dir_writable dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time laravel_version time)
 
 
 #  ---------------------------------------------------------------------------
