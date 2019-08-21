@@ -135,7 +135,11 @@ function sysupgrade() {
 
 # Print the current public IP address
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
-
+alias arpscan='sudo arp-scan --localnet --bandwidth=4096000'
+# Prettyping
+if (( $+commands[prettyping] )); then
+  alias ping='prettyping --nolegend'
+fi
 function ispeed() {
     ip="$(myip)"
 
@@ -158,12 +162,6 @@ function ispeed() {
 
     # Use this to add any other condition : elif [[ $ip =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
 }
-
-# Prettyping
-if (( $+commands[prettyping] )); then
-  alias ping='prettyping --nolegend'
-fi
-alias arpscan='sudo arp-scan --localnet --bandwidth=4096000'
 
 # MPV aliases
 alias yt-formats='youtube-dl --list-formats' # Prints all available formats
