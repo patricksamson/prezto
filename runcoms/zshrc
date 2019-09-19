@@ -40,13 +40,10 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time laravel_versio
 #  Sections:
 #  1.   Environment Configuration
 #  2.   Make Terminal Better (remapping defaults and adding functionality)
-#  3.   File and Folder Management
-#  4.   Searching
-#  5.   Process Management
-#  6.   Networking
-#  7.   System Operations & Information
-#  8.   Web Development
-#  9.   Reminders & Notes
+#  3.   Networking
+#  4.   Audio, mpv and youtube-dl
+#  5.   Web Development
+#  6.   File and folder management
 #
 #  ---------------------------------------------------------------------------
 
@@ -79,11 +76,11 @@ alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ll='ls -lFah'                         # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 function cd() { builtin cd "$@"; ll; }      # Always list directory contents upon 'cd'
-alias largest='ll -- **/*(.DOL[1,10])'      # List the 10 largest regular files recursively
-alias dirsize='du -cksh * | sort -hr'       # List folders by their size
-function duls () {
+alias largest='ll -- **/*(.DOL[1,10])'      # List the 10 largest regular files recursively.
+alias dirsize='du -cksh * | sort -hr'       # List files and folders, sorted by their size.
+function duls () {                          # List all the directory sizes, and append the results from 'll' command. Usage 'duls *'
     paste <( du -hs -- "$@" | cut -f1 ) <( ls -ldFGAhp -- "$@" )
-}                                           # List all the directory sizes, and append the results from 'll' command. Usage 'duls *'
+}
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -104,6 +101,21 @@ function mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new D
 function trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 function ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+
+#   lr:  Full Recursive Directory Listing
+#   ------------------------------------------
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
+
+#   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
+#           displays paginated result with colored search terms and two lines surrounding each hit.             Example: mans mplayer codec
+#   --------------------------------------------------------------------
+function mans () {
+    man $1 | grep -iC2 --color=always $2 | less
+}
+
+#   showa: to remind yourself of an alias (given some part of it)
+#   ------------------------------------------------------------
+function showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zshrc | grep -v '^\s*$' | less -FSRXc ; }
 
 # apt-get update shortcut
 function sysupgrade() {
@@ -131,7 +143,10 @@ function sysupgrade() {
     esac
 }
 
-# Network tools
+
+#   -----------------------------
+#   3.  NETWORK TOOLS
+#   -----------------------------
 
 # Print the current public IP address
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -143,7 +158,7 @@ fi
 function ispeed() {
     ip="$(myip)"
 
-    # Testing from home
+    # Testing from home (IP is 70.52.x.x)
     if [[ $ip =~ ^70\.52\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
         speedtest --server 14854 --secure
 
@@ -163,6 +178,11 @@ function ispeed() {
     # Use this to add any other condition : elif [[ $ip =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
 }
 
+
+#   -----------------------------
+#   4.  AUDIO, MPV AND YOUTUBE-DL
+#   -----------------------------
+
 # MPV aliases
 alias yt-formats='youtube-dl --list-formats' # Prints all available formats
 
@@ -179,33 +199,26 @@ alias rlive='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=2048 
 function rrec-dry() { yt-formats "$1" && youtube-dl --get-format -f "bestaudio/best" "$1"; }
 alias rrec='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=2048 --ytdl-format="bestaudio/best"'
 
-# Laravel aliases
+
+#   -----------------------------
+#   5.  WEB DEVELOPMENT
+#   -----------------------------
+
+# Laravel and PHP
 alias art='php artisan'
 alias migrate='php artisan migrate'
 alias fresh='php artisan migrate:fresh --seed'
 alias cu='composer update'
 
-# Node.js aliases
+# Node.js
 alias yu="yarn upgrade"
 
-#   lr:  Full Recursive Directory Listing
-#   ------------------------------------------
-alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
-
-#   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
-#           displays paginated result with colored search terms and two lines surrounding each hit.             Example: mans mplayer codec
-#   --------------------------------------------------------------------
-function mans () {
-    man $1 | grep -iC2 --color=always $2 | less
-}
-
-#   showa: to remind yourself of an alias (given some part of it)
-#   ------------------------------------------------------------
-function showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zshrc | grep -v '^\s*$' | less -FSRXc ; }
+# Combinations and other aliases
+alias cyu="cu && yu"
 
 
 #   -------------------------------
-#   3.  FILE AND FOLDER MANAGEMENT
+#   6.  FILE AND FOLDER MANAGEMENT
 #   -------------------------------
 
 function zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
