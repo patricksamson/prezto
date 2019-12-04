@@ -191,13 +191,13 @@ alias yt-formats='youtube-dl --list-formats' # Prints all available formats
 #   They're often available in 480p@128k, 720p@256k or 1080p@256k. Let's use the 720p, since the video is discarded.
 #   Note : --ytdl-raw-options : Options without argument must include =.
 function rlive-dry() { yt-formats "$1" && youtube-dl --get-format -f "bestaudio/best[height<1080]/best" "$1"; }
-alias rlive='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=2048 --ytdl-format="bestaudio/best[height<1080]/best" --force-seekable=yes'
+alias rlive='mpv --no-video --volume=80 --cache-secs=60 --ytdl-format="bestaudio/best[height<1080]/best" --force-seekable=yes'
 
 #   Play an audio-only Youtube pre-recorded set
 #   Regular videos usually have DASH audio-only files, so we try to use those first.
 #
 function rrec-dry() { yt-formats "$1" && youtube-dl --get-format -f "bestaudio/best" "$1"; }
-alias rrec='mpv --no-video --volume=80 --cache-secs=60 --cache-backbuffer=2048 --ytdl-format="bestaudio/best"'
+alias rrec='mpv --no-video --volume=80 --cache-secs=60 --ytdl-format="bestaudio/best"'
 
 
 #   -----------------------------
