@@ -151,6 +151,9 @@ function sysupgrade() {
 # Print the current public IP address
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias arpscan='sudo arp-scan --localnet --bandwidth=4096000'
+alias flushdns='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
+alias digall='dig -t ANY'
+
 # Prettyping
 if (( $+commands[prettyping] )); then
   alias ping='prettyping --nolegend'
