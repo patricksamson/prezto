@@ -212,6 +212,8 @@ alias art='php artisan'
 alias migrate='php artisan migrate'
 alias fresh='php artisan migrate:fresh --seed'
 alias cu='composer update'
+alias co='composer outdated'
+alias cl='composer show -t' # Show installed packages and dependency tree
 
 # Node.js
 alias yu="yarn upgrade"
