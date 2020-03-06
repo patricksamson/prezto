@@ -152,7 +152,8 @@ function sysupgrade() {
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias arpscan='sudo arp-scan --localnet --bandwidth=4096000'
 alias flushdns='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
-alias digall='dig -t ANY'
+alias digall='dig -t ANY' # List all DNS records for a domain. E.g. : digall google.com @1.1.1.1
+alias dnsbench='namebench --query=1000 --timeout=1 --benchmark_threads=100 --input=alexa --open_webbrowser --only 1.1.1.1 8.8.8.8 ' # DNS Benchmark, add your system DNS : `dnsbench 10.0.0.1`
 
 # Prettyping
 if (( $+commands[prettyping] )); then
