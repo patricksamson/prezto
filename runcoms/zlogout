@@ -44,6 +44,8 @@ SAYINGS=(
     "“I’m afraid you’re going to have to accept it.”\n -- Douglas Adams"
     "“The knack of flying is learning how to throw yourself at the ground and miss”\n -- Douglas Adams"
     "“I love deadlines. I like the whooshing sound they make as they fly by.“\n -- Douglas Adams"
+    "“The scholar's greatest weakness: calling procrastination research.”\n — Stephen King"
+
 )
 
 # Print a randomly-chosen message:
