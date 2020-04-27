@@ -119,28 +119,24 @@ function showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zs
 
 # apt-get update shortcut
 function sysupgrade() {
-    case "$(uname -s)" in
-        Darwin)
-            mas upgrade
-            brew upgrade --force-bottle
-            brew cu
-            brew cleanup
-            which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
-            zprezto-update
-        ;;
+    if is-darwin; then
+        mas upgrade
+        brew upgrade --force-bottle
+        brew cu
+        brew cleanup
+        which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
+        zprezto-update
 
-        Linux)
-            sudo apt update
-            sudo apt -V full-upgrade
-            sudo apt autoremove
-            which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
-            zprezto-update
-        ;;
+    elif is-linux; then
+        sudo apt update
+        sudo apt -V full-upgrade
+        sudo apt autoremove
+        which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
+        zprezto-update
 
-        *)
+    else
         echo 'This Opreating system is not supported.'
-        ;;
-    esac
+    fi
 }
 
 
