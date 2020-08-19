@@ -146,36 +146,27 @@ function sysupgrade() {
 
 # Print the current public IP address
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+# List other devices on the local network
 alias arpscan='sudo arp-scan --localnet --bandwidth=4096000'
+# Flush the DNS cache. Useful for local issues, and over the Internet
 alias flushdns='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
-alias digall='dig -t ANY' # List all DNS records for a domain. E.g. : digall google.com @1.1.1.1
-alias dnsbench='namebench --query=1000 --timeout=1 --benchmark_threads=100 --input=alexa --open_webbrowser --only 1.1.1.1 8.8.8.8 ' # DNS Benchmark, add your system DNS : `dnsbench 10.0.0.1`
+# List all DNS records for a domain. E.g. : digall google.com @1.1.1.1
+alias digall='dig -t ANY'
+# DNS Benchmark, add your system DNS : `dnsbench 10.0.0.1`
+alias dnsbench='namebench --query=1000 --timeout=1 --benchmark_threads=100 --input=alexa --open_webbrowser --only 1.1.1.1 8.8.8.8 149.112.121.10 '
 
 # Prettyping
 if (( $+commands[prettyping] )); then
   alias ping='prettyping --nolegend'
 fi
 function ispeed() {
-    ip="$(myip)"
-
-    # Testing from home (IP is 70.52.x.x)
-    if [[ $ip =~ ^70\.52\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-        speedtest --server 14854 --secure
-
-    # Testing from IDF Office
-    elif [[ $ip == 173.231.120.138 ]]; then
-        # Test from Fibrenoire (Montreal, QC)
-        speedtest --server 911 --secure
-
-    else
-        # Test from QTS Datacenters (Jersey City, NJ)
-        speedtest --server 14854 --secure
-
-        # Test from Keewaytinook Okimakanak (Toronto, ON)
-        speedtest --server 4441 --secure
-    fi
-
-    # Use this to add any other condition : elif [[ $ip =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+    speedtest -s 911 # Fibrenoire
+}
+function ispeed-fast() {
+    speedtest -s 911 # Fibrenoire
+    speedtest -s 17567 # Bell Laval
+    speedtest -s 16754 # Bell Mobility Montreal
+    speedtest -s 24707 # Telus Mobility Montreal
 }
 
 
