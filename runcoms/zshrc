@@ -191,7 +191,7 @@ alias rlive='mpv --no-video --volume=80 --cache-secs=60 --ytdl-format="bestaudio
 #   Regular videos usually have DASH audio-only files, so we try to use those first.
 #
 function rrec-dry() { yt-formats "$1" && youtube-dl --get-format -f "bestaudio/best" "$1"; }
-alias rrec='mpv --no-video --volume=80 --cache-secs=60 --ytdl-format="bestaudio/best"'
+alias rrec='mpv --no-video --volume=80 --cache-secs=60 --ytdl-format="bestaudio/best" --ytdl-raw-options=no-cache-dir=,playlist-random='
 
 
 #   -----------------------------
