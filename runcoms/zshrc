@@ -121,7 +121,7 @@ function showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zs
 function sysupgrade() {
     if is-darwin; then
         mas upgrade
-        brew upgrade --force-bottle
+        brew upgrade
         brew cu
         brew cleanup
         which composer > /dev/null 2>&1 && [[ -f "$HOME/.composer/composer.json" ]] && composer global update
@@ -165,6 +165,7 @@ function ispeed() {
 function ispeed-fast() {
     speedtest -s 911 # Fibrenoire
     speedtest -s 17567 # Bell Laval
+    speedtest -s 37607 # CalmDownGeek Beauharnois
     speedtest -s 16754 # Bell Mobility Montreal
     speedtest -s 24707 # Telus Mobility Montreal
 }
