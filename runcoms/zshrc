@@ -189,14 +189,21 @@ alias rrec='mpv --no-video --volume=100 --cache-secs=60 --ytdl-format="bestaudio
 #   5.  WEB DEVELOPMENT
 #   -----------------------------
 
-# Laravel and PHP
-alias art='php artisan'
-alias migrate='php artisan migrate'
-alias fresh='php artisan migrate:fresh --seed'
+# PHP
+alias php@7.4='/usr/local/opt/php@7.4/bin/php'
+
+# Composer
 alias ci='composer install'
 alias cu='composer update'
 alias co='composer outdated'
 alias cl='composer show -t' # Show installed packages and dependency tree
+alias cgu='composer global update'
+alias cgo='composer global outdated'
+
+# Laravel
+alias art='php artisan'
+alias migrate='php artisan migrate'
+alias fresh='php artisan migrate:fresh --seed'
 
 # Node.js
 alias yu="yarn upgrade"
