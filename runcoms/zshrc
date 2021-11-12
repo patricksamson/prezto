@@ -127,7 +127,7 @@ function sysupgrade() {
         echo 'This Opreating system is not supported.'
     fi
 }
-alias fix_homebrew = 'brew doctor && sudo chown -R $(whoami) $(brew --prefix)/Cellar/*'
+alias fix_homebrew='brew doctor && sudo chown -R $(whoami) $(brew --prefix)/Cellar/*'
 
 
 #   -----------------------------
@@ -165,7 +165,7 @@ function ispeed-fast() {
 #   4.  AUDIO, MPV AND YOUTUBE-DL
 #   -----------------------------
 
-# Spotifyd 
+# Spotifyd
 alias spoticli='spotifyd --no-daemon'
 
 # MPV aliases
