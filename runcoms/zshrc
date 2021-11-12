@@ -127,6 +127,7 @@ function sysupgrade() {
         echo 'This Opreating system is not supported.'
     fi
 }
+alias fix_homebrew = 'brew doctor && sudo chown -R $(whoami) $(brew --prefix)/Cellar/*'
 
 
 #   -----------------------------
