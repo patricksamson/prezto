@@ -195,6 +195,7 @@ alias rrec='mpv --no-video --volume=100 --cache-secs=60 --ytdl-format="bestaudio
 
 # PHP
 alias php@7.4='/usr/local/opt/php@7.4/bin/php'
+alias php@8.0='/usr/local/opt/php@8.0/bin/php'
 
 # Composer
 alias ci='composer install'
