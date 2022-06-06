@@ -188,6 +188,9 @@ alias rlive='mpv --no-video --volume=100 --cache-secs=60 --ytdl-format="bestaudi
 function rrec-dry() { yt-formats "$1" && youtube-dl --get-format -f "bestaudio/best" "$1"; }
 alias rrec='mpv --no-video --volume=100 --cache-secs=60 --ytdl-format="bestaudio/best" --ytdl-raw-options=no-cache-dir=,playlist-random='
 
+# Stream Nanit camera from the Homebridge proxy
+alias nanit='iina rtmp://10.2.0.20:1935/local/b2cc5d12 --mpv-mute=yes --mpv-cache-secs=1'
+
 
 #   -----------------------------
 #   5.  WEB DEVELOPMENT
@@ -196,7 +199,6 @@ alias rrec='mpv --no-video --volume=100 --cache-secs=60 --ytdl-format="bestaudio
 # PHP
 alias php@7.4='/usr/local/opt/php@7.4/bin/php'
 alias php@8.0='/usr/local/opt/php@8.0/bin/php'
-export PHP_CS_FIXER_IGNORE_ENV=true
 
 # Composer
 alias ci='composer install'
