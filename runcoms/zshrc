@@ -219,6 +219,10 @@ alias yu="yarn upgrade"
 # Combinations and other aliases
 alias cyu="cu && yu"
 
+# Git
+alias git-cleanup-dry="git branch --merged | grep -v '\*\|master\|main\|live\|develop'"
+alias git-cleanup="git branch --merged | grep -v '\*\|master\|main\|live\|develop' | xargs -n 1 -r git branch -d"
+
 
 #   -------------------------------
 #   6.  FILE AND FOLDER MANAGEMENT
