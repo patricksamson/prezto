@@ -112,6 +112,7 @@ function showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zs
 # apt-get update shortcut
 function sysupgrade() {
     if is-darwin; then
+        # mas reset # prevent reinstalling updates
         mas upgrade
         brew upgrade
         brew cu
@@ -158,9 +159,30 @@ function ispeed() {
 function ispeed-fast() {
     speedtest -s 911 # Fibrenoire
     speedtest -s 17567 # Bell Laval
-    speedtest -s 37607 # CalmDownGeek Beauharnois
+    speedtest -s 6835 # TelKel Laval
     speedtest -s 16754 # Bell Mobility Montreal
     speedtest -s 24707 # Telus Mobility Montreal
+    speedtest -s 48287 # Cloudflare Toronto
+}
+
+# https://speedtest-server-list.herokuapp.com
+function ispeed-far() {
+    speedtest -s 48286 # Cloudflare Vancouver, BC
+    speedtest -s 44935 # Cloudflare Newark, NJ (New York)
+    speedtest -s 48297 # Cloudflare Atlanta, GA
+    speedtest -s 44932 # Cloudflare San Jose, CA (The Bay Area)
+    speedtest -s 48302 # Cloudflare São Paulo, Brazil
+    speedtest -s 48276 # Cloudflare Santiago, Chile
+    speedtest -s 48301 # Cloudflare Tokyo, Japan
+    speedtest -s 48299 # Cloudflare Hong Kong
+    speedtest -s 48306 # Cloudflare Singapore
+    speedtest -s 48293 # Cloudflare Sydney, Australia
+    speedtest -s 48298 # Cloudflare Mumbai, India
+    speedtest -s 48283 # Cloudflare Johannesburg, South Africa
+    speedtest -s 48303 # Cloudflare Paris, France
+    speedtest -s 48277 # Cloudflare Zurich, Switzerland
+    speedtest -s 48304 # Cloudflare Frankfurt, Germany
+    speedtest -s 48281 # Cloudflare Stockholm, Sweden
 }
 
 
