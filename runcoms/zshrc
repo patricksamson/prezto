@@ -221,11 +221,12 @@ alias nanit='iina rtmp://10.2.0.20:1935/local/b2cc5d12 --mpv-mute=yes --mpv-cach
 # PHP
 alias php@7.4='/usr/local/opt/php@7.4/bin/php'
 alias php@8.0='/usr/local/opt/php@8.0/bin/php'
+export PHP_CS_FIXER_IGNORE_ENV=true
 
 # Composer
 alias ci='composer install'
 alias cu='composer update'
-alias co='composer outdated'
+alias co='composer outdated --direct'
 alias cl='composer show -t' # Show installed packages and dependency tree
 alias cgu='composer global update'
 alias cgo='composer global outdated'
