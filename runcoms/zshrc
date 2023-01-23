@@ -236,6 +236,7 @@ alias cgo='composer global outdated'
 
 # Laravel
 alias art='php artisan'
+alias vart='valet php artisan'
 alias migrate='php artisan migrate'
 alias fresh='php artisan migrate:fresh --seed'
 
@@ -291,3 +292,6 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/go
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Enable shell completion for 1Password
+eval "$(op completion zsh)"; compdef _op op
