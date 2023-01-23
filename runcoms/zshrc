@@ -193,6 +193,9 @@ function ispeed-far() {
 # Spotifyd
 alias spoticli='spotifyd --no-daemon'
 
+# Override youtube-dl
+alias youtube-dl='yt-dlp'
+
 # MPV aliases
 alias yt-formats='youtube-dl --list-formats' # Prints all available formats
 
