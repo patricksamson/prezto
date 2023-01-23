@@ -113,7 +113,7 @@ function showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zs
 function sysupgrade() {
     if is-darwin; then
         # mas reset # prevent reinstalling updates
-        mas upgrade
+        # mas upgrade
         brew upgrade
         brew cu
         brew cleanup
