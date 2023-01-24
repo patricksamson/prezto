@@ -21,8 +21,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Source ASDF for ButcherBox
-if [[ -r "/usr/local/opt/asdf/asdf.sh" ]]; then
-    source "/usr/local/opt/asdf/asdf.sh"
+if [[ -r "/usr/local/opt/asdf/libexec/asdf.sh" ]]; then
+    source "/usr/local/opt/asdf/libexec/asdf.sh"
 fi
 
 #  ---------------------------------------------------------------------------
@@ -288,3 +288,5 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/go
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NPM_TOKEN=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
