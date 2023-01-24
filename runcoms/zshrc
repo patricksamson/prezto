@@ -113,7 +113,7 @@ function showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.zprezto/runcoms/zs
 function sysupgrade() {
     if is-darwin; then
         # mas reset # prevent reinstalling updates
-        mas upgrade
+        # mas upgrade
         brew upgrade
         brew cu
         brew cleanup
@@ -193,6 +193,9 @@ function ispeed-far() {
 # Spotifyd
 alias spoticli='spotifyd --no-daemon'
 
+# Override youtube-dl
+alias youtube-dl='yt-dlp'
+
 # MPV aliases
 alias yt-formats='youtube-dl --list-formats' # Prints all available formats
 
@@ -233,6 +236,7 @@ alias cgo='composer global outdated'
 
 # Laravel
 alias art='php artisan'
+alias vart='valet php artisan'
 alias migrate='php artisan migrate'
 alias fresh='php artisan migrate:fresh --seed'
 
@@ -289,4 +293,5 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/go
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
 
-export NPM_TOKEN=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
+# Enable shell completion for 1Password
+eval "$(op completion zsh)"; compdef _op op
