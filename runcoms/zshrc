@@ -20,11 +20,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Source ASDF for ButcherBox
-if [[ -r "/usr/local/opt/asdf/libexec/asdf.sh" ]]; then
-    source "/usr/local/opt/asdf/libexec/asdf.sh"
-fi
-
 #  ---------------------------------------------------------------------------
 #
 #  Description:  This file holds all my BASH configurations and aliases
@@ -295,3 +290,6 @@ if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/lo
 
 # Enable shell completion for 1Password
 eval "$(op completion zsh)"; compdef _op op
+
+# Source ASDF
+if [ -f '/usr/local/opt/asdf/libexec/asdf.sh' ]; then . /usr/local/opt/asdf/libexec/asdf.sh; fi;
