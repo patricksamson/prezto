@@ -194,6 +194,9 @@ alias youtube-dl='yt-dlp'
 # MPV aliases
 alias yt-formats='youtube-dl --list-formats' # Prints all available formats
 
+alias yt-best-m4a='yt-dlp -f "bestaudio[ext=m4a]"'
+alias yt-best-mp4='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
+
 #   Play an audio-only Youtube radio Live Stream
 #   Youtube LiveStreams are usually MP4+AAC files streamed using the HLS protocol. Since there is only one format, it's easy to compare quality.
 #   They're often available in 480p@128k, 720p@256k or 1080p@256k. Let's use the 720p, since the video is discarded.
@@ -232,6 +235,7 @@ alias cgo='composer global outdated'
 # Laravel
 alias art='php artisan'
 alias vart='valet php artisan'
+alias sail='vendor/bin/sail'
 alias migrate='php artisan migrate'
 alias fresh='php artisan migrate:fresh --seed'
 
