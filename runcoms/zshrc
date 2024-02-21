@@ -234,6 +234,8 @@ alias cgo='composer global outdated'
 
 # Laravel
 alias art='php artisan'
+alias artenc='LARAVEL_ENV_ENCRYPTION_KEY="op://Secrets/Laravel Secrets Encryption Key/password" op run -- php artisan env:encrypt'
+alias artdec='LARAVEL_ENV_ENCRYPTION_KEY="op://Secrets/Laravel Secrets Encryption Key/password" op run -- php artisan env:decrypt'
 alias vart='valet php artisan'
 alias sail='vendor/bin/sail'
 alias migrate='php artisan migrate'
