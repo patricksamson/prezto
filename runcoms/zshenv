@@ -9,3 +9,6 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_CLEANUP_MAX_AGE_DAYS=30
